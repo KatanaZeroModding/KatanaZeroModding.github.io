@@ -28,11 +28,10 @@ jobs:
       - name: Install, check, and build
         run: |
           bun install --frozen-lockfile
+          bunx paraglide-js compile --project ./project.inlang --outdir ./src/lib/paraglide --emit-ts-declarations --strategy url cookie baseLocale
           bun run check
           bun run check:i18n
           bun run build
-        env:
-          BASE_PATH: /WebSite
 
       - uses: actions/upload-pages-artifact@v3
         if: github.event_name != 'pull_request'
@@ -56,3 +55,5 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+
