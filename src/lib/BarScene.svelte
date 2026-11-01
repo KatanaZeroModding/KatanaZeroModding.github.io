@@ -31,13 +31,21 @@
     let lastDraw = -1;
     const images = new Map<SpriteName, CanvasImageSource>();
 
-    function matchSiteBackdrop(img: HTMLImageElement) {
+    function matchSiteBackdrop(img: HTMLImageElement, sign?: HTMLImageElement) {
       const surface = document.createElement('canvas');
       surface.width = img.naturalWidth;
       surface.height = img.naturalHeight;
       const gfx = surface.getContext('2d', { willReadFrequently: true });
       if (!gfx) return img;
       gfx.drawImage(img, 0, 0);
+      // Only replace the sign interior; preserve the original frame and room pixels.
+      if (sign?.naturalWidth) {
+        gfx.imageSmoothingEnabled = false;
+        gfx.drawImage(sign,
+          sign.naturalWidth * 293 / 640, sign.naturalHeight * 163 / 360,
+          sign.naturalWidth * 104 / 640, sign.naturalHeight * 19 / 360,
+          293, 163, 104, 19);
+      }
       const frame = gfx.getImageData(0, 0, surface.width, surface.height);
       const pixels = frame.data;
       for (let i = 0; i < pixels.length; i += 4) {
@@ -101,13 +109,25 @@
     const onMotion = () => { reduceMotion = motion.matches; render(); };
     const observer = new IntersectionObserver(([entry]) => { inView = entry.isIntersecting; render(); });
 
-    Promise.all((Object.keys(sprites) as SpriteName[]).map((name) => new Promise<void>((resolve, reject) => {
+    const signImage = new Image();
+    const signReady = new Promise<void>((resolve) => {
+      signImage.onload = () => resolve();
+      // Keep the original scene usable if the optional lettering asset fails.
+      signImage.onerror = () => resolve();
+      signImage.src = `${base}/bar/kzmod-sign-source.png`;
+    });
+
+    const spriteReady = (Object.keys(sprites) as SpriteName[]).map((name) => new Promise<void>((resolve, reject) => {
       const img = new Image();
-      img.onload = () => { images.set(name, name === 'bg_bar' ? matchSiteBackdrop(img) : img); resolve(); };
+      img.onload = () => { images.set(name, img); resolve(); };
       img.onerror = () => reject(new Error(`Could not load ${name}`));
       img.src = `${base}${sprites[name].src}`;
-    }))).then(() => {
+    }));
+
+    Promise.all([signReady, ...spriteReady]).then(() => {
       if (disposed) return;
+      const background = images.get('bg_bar') as HTMLImageElement;
+      images.set('bg_bar', matchSiteBackdrop(background, signImage));
       draw();
       observer.observe(element);
       render();
@@ -126,7 +146,12 @@
 </script>
 
 <div class="bar-scene" style:--scene-sign-x={signAnchorX}>
-  <img class="bar-fallback" src="{base}/bar/poster.png" alt="" aria-hidden="true" width="1280" height="500" fetchpriority="high" />
+  <svg class="bar-fallback" viewBox="0 0 1280 500" width="1280" height="500" aria-hidden="true">
+    <image href="{base}/bar/poster.png" width="1280" height="500" />
+    <svg x="586" y="250" width="208" height="38" viewBox="293 163 104 19">
+      <image href="{base}/bar/kzmod-sign-source.png" width="640" height="360" preserveAspectRatio="none" />
+    </svg>
+  </svg>
   {#if !failed}
     <canvas bind:this={canvas} width="1280" height="500" aria-label={barAria}></canvas>
   {:else}
