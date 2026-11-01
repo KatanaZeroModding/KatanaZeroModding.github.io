@@ -1,0 +1,101 @@
+{
+  "bg_bar": {
+    "width": 640,
+    "height": 360,
+    "originX": 0,
+    "originY": 0,
+    "frames": 1,
+    "fps": 15,
+    "src": "/bar/bg_bar.png"
+  },
+  "spr_player_sitstool_idle": {
+    "width": 34,
+    "height": 41,
+    "originX": 17,
+    "originY": 41,
+    "frames": 1,
+    "fps": 15,
+    "src": "/bar/spr_player_sitstool_idle.png"
+  },
+  "spr_player_drink": {
+    "width": 36,
+    "height": 42,
+    "originX": 19,
+    "originY": 42,
+    "frames": 23,
+    "fps": 15,
+    "src": "/bar/spr_player_drink.png"
+  },
+  "spr_bartender_idle": {
+    "width": 29,
+    "height": 25,
+    "originX": 14,
+    "originY": 25,
+    "frames": 11,
+    "fps": 15,
+    "src": "/bar/spr_bartender_idle.png"
+  },
+  "spr_vet1_shirt_right_idle": {
+    "width": 26,
+    "height": 40,
+    "originX": 13,
+    "originY": 40,
+    "frames": 1,
+    "fps": 15,
+    "src": "/bar/spr_vet1_shirt_right_idle.png"
+  },
+  "spr_vet1_shirt_talk": {
+    "width": 26,
+    "height": 40,
+    "originX": 13,
+    "originY": 40,
+    "frames": 6,
+    "fps": 15,
+    "src": "/bar/spr_vet1_shirt_talk.png"
+  },
+  "spr_vet2_cap_idle": {
+    "width": 22,
+    "height": 41,
+    "originX": 11,
+    "originY": 41,
+    "frames": 1,
+    "fps": 15,
+    "src": "/bar/spr_vet2_cap_idle.png"
+  },
+  "spr_vet2_cap_talk": {
+    "width": 22,
+    "height": 41,
+    "originX": 11,
+    "originY": 41,
+    "frames": 9,
+    "fps": 15,
+    "src": "/bar/spr_vet2_cap_talk.png"
+  },
+  "spr_vet2_cap_smoke": {
+    "width": 26,
+    "height": 43,
+    "originX": 15,
+    "originY": 43,
+    "frames": 24,
+    "fps": 15,
+    "src": "/bar/spr_vet2_cap_smoke.png"
+  },
+  "spr_bar_glass": {
+    "width": 4,
+    "height": 4,
+    "originX": 2,
+    "originY": 4,
+    "frames": 1,
+    "fps": 15,
+    "src": "/bar/spr_bar_glass.png"
+  },
+  "spr_cigarette_smoke": {
+    "width": 27,
+    "height": 20,
+    "originX": 0,
+    "originY": 10,
+    "frames": 14,
+    "fps": 60,
+    "src": "/bar/spr_cigarette_smoke.png"
+  }
+}
