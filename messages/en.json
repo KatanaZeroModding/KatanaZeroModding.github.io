@@ -1,8 +1,8 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "seo_title": "KZM — mod launcher for Katana ZERO",
-  "seo_description": "KZM is a free mod launcher for Katana ZERO on Windows. Install .kzm packages, manage mod profiles, and launch the game from one app. Docs for mod authors included.",
-  "seo_keywords": "Katana ZERO, mods, KZM, launcher, modding, Windows, Askiisoft, mod install",
+  "seo_title": "Katana ZERO mods — free KZM launcher for Windows",
+  "seo_description": "Free mod launcher for Katana ZERO on Windows. Install .kzm packages, save profiles, and launch the game from one app. Open source, with docs for mod authors.",
+  "seo_keywords": "Katana ZERO mods, mod launcher, KZM, .kzm, modding, Windows",
   "seo_og_title": "KZM — same game, new possibilities",
   "seo_og_description": "Mod launcher for Katana ZERO: install mods, profiles, and play from one window.",
   "seo_og_image_alt": "Zero at the bar in Katana ZERO",
@@ -55,4 +55,6 @@
   "footer_legal": "KZM is an independent community project, not affiliated with the developers of Katana ZERO.",
   "footer_legal2": "Katana ZERO and related assets belong to Askiisoft and their respective rights holders."
 }
+
+
 

@@ -68,13 +68,13 @@
     </div>
 
     <div class="hero-copy mx-auto">
-      <div class="hero-name flex items-center">
-        <h1 id="hero-title" class="hero-title-lockup">
+      <h1 id="hero-title" class="hero-name flex items-center">
+        <span class="sr-only">{m.hero_brand()}</span>
+        <span class="hero-title-lockup">
           <img class="brand-logo hero-logo" src="{base}/brand/logotype-pixel.png" alt="" aria-hidden="true" width="52" height="52" />
-          <span class="sr-only">{m.hero_brand()}</span>
-        </h1>
-        <p class="full-name">{m.hero_line1()}<br class="full-name-break" aria-hidden="true" /><span class="full-name-line2">{m.hero_line2()}</span></p>
-      </div>
+        </span>
+        <span class="full-name">{m.hero_line1()}<br class="full-name-break" aria-hidden="true" /><span class="full-name-line2">{m.hero_line2()}</span></span>
+      </h1>
       <p class="hero-detail">{m.hero_detail()}</p>
       <div class="hero-actions flex flex-wrap items-center gap-3">
         <a class="button button-primary" href={links.download} target="_blank" rel="noopener noreferrer"><ArrowDownToLine size={18} /> {m.hero_download()}</a>
@@ -146,6 +146,7 @@
   </div>
   <p class="legal">{m.footer_legal()}<br />{m.footer_legal2()}</p>
 </footer>
+
 
 
 

@@ -1,8 +1,8 @@
 {
   "$schema": "https://inlang.com/schema/inlang-message-format",
-  "seo_title": "KZM — лаунчер модов для Katana ZERO",
-  "seo_description": "KZM — бесплатный лаунчер модов для Katana ZERO на Windows. Установка .kzm, профили наборов модов, запуск игры из одного окна. Документация для авторов модов.",
-  "seo_keywords": "Katana ZERO, моды, KZM, лаунчер, modding, Windows, Askiisoft, установка модов",
+  "seo_title": "Katana ZERO моды — бесплатный лаунчер KZM",
+  "seo_description": "Бесплатный лаунчер модов для Katana ZERO на Windows. Установка .kzm, профили и запуск игры из одного окна. Открытый код и документация для авторов модов.",
+  "seo_keywords": "Katana ZERO моды, моды для Katana ZERO, лаунчер KZM, .kzm, modding, Windows",
   "seo_og_title": "KZM — знакомая игра, новые возможности",
   "seo_og_description": "Лаунчер модов для Katana ZERO: установка, профили и запуск в одном окне.",
   "seo_og_image_alt": "Зеро за барной стойкой в Katana ZERO",
@@ -55,4 +55,6 @@
   "footer_legal": "KZM — независимый проект сообщества, не связанный с разработчиками Katana ZERO.",
   "footer_legal2": "Katana ZERO и игровые материалы принадлежат Askiisoft и соответствующим правообладателям."
 }
+
+
 

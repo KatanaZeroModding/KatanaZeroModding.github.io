@@ -71,6 +71,7 @@ a.wordmark { display: inline-flex; align-items: center; min-height: 2.75rem; }
 .bar-scene::after { content: ''; position: absolute; pointer-events: none; inset: 0; background: linear-gradient(0deg, #101014 0%, transparent 13%), linear-gradient(90deg, #101014, transparent 9%, transparent 91%, #101014); }
 .hero-copy { position: relative; margin-top: -.3125rem; width: calc(100% - var(--gutter) * 2); max-width: 48rem; margin-inline: auto; padding: 0; text-align: center; }
 .hero-name { display: flex; align-items: center; justify-content: center; width: max-content; max-width: none; margin-inline: auto; --hero-name-size: 3.25rem; --hero-brand-gap: 1rem; gap: var(--hero-brand-gap); flex-wrap: nowrap; flex-shrink: 0; }
+h1.hero-name { font-size: inherit; font-weight: inherit; line-height: 1; letter-spacing: 0; }
 .hero-name .hero-title-lockup, .hero-name .full-name { flex-shrink: 0; min-width: 0; }
 .full-name { display: block; width: max-content; max-width: none; flex-shrink: 0; margin: 0; text-align: start; font-family: var(--font-display); font-size: var(--hero-name-size); font-weight: 400; line-height: 1; letter-spacing: 0; color: var(--ink); padding: 0; white-space: normal; }
 .full-name-line2 { display: block; text-align: start; }

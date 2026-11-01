@@ -1,0 +1,16 @@
+# KZM
+
+> Free mod launcher for Katana ZERO on Windows. Install .kzm packages, keep mod profiles, and launch the game from one app.
+
+KZM (Katana ZERO Modding) is an independent community project. It is not affiliated with Askiisoft. A legally owned copy of Katana ZERO is required.
+
+## Pages
+
+- [Русский](https://kzm.bar/): бесплатный лаунчер модов для Katana ZERO
+- [English](https://kzm.bar/en/): free Katana ZERO mod launcher
+
+## Links
+
+- [Download for Windows](https://github.com/KatanaZeroModding/KZM/releases/latest)
+- [Modding documentation](https://github.com/KatanaZeroModding/KZM/blob/main/docs/MODDING.md)
+- [Source code](https://github.com/KatanaZeroModding/KZM)
