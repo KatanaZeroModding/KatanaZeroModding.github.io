@@ -16,4 +16,20 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://kzm.bar/en/" />
     <xhtml:link rel="alternate" hreflang="x-default" href="https://kzm.bar/" />
   </url>
+  <url>
+    <loc>https://kzm.bar/mods/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kzm.bar/mods/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kzm.bar/en/mods/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kzm.bar/mods/" />
+  </url>
+  <url>
+    <loc>https://kzm.bar/en/mods/</loc>
+    <changefreq>daily</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://kzm.bar/mods/" />
+    <xhtml:link rel="alternate" hreflang="en" href="https://kzm.bar/en/mods/" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://kzm.bar/mods/" />
+  </url>
 </urlset>

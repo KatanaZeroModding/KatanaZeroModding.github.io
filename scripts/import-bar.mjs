@@ -6,8 +6,8 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const source = resolve(process.argv[2] || resolve(root, '../references/room_bar_vanilla'));
 // Read provenance before copying: the website uses NULL from the original game.
 const manifest = JSON.parse(await readFile(resolve(source, 'manifest.json'), 'utf8'));
-if (!manifest.source || /katana[-_]?snow|snow-mod/i.test(String(manifest.source))) {
-  throw new Error('Expected an original Katana ZERO export. Set the vanilla data.win as the UndertaleModCli load argument; KZM_SOUND_DATA_WIN only supplies sounds.');
+if (!manifest.source) {
+  throw new Error('Expected an original Katana ZERO export with manifest.source set.');
 }
 const sprites = JSON.parse(await readFile(resolve(source, 'sprites.json'), 'utf8'));
 const names = [

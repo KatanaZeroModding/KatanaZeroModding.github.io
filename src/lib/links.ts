@@ -6,6 +6,8 @@ export const links = {
     en: 'https://github.com/KatanaZeroModding/KZM/blob/main/README.md',
   },
   source: 'https://github.com/KatanaZeroModding/KZM',
+  mods: 'https://github.com/KatanaZeroModding/mods',
+  modsIndex: 'https://raw.githubusercontent.com/KatanaZeroModding/mods/main/index.json',
   support: 'https://ko-fi.com/an1by',
   author: 'https://github.com/an1by',
 } as const;

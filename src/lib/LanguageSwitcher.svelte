@@ -3,8 +3,9 @@
   import { getLocale, localizeHref } from '$lib/paraglide/runtime';
 
   const locale = $derived(getLocale());
-  const ruHref = $derived(localizeHref('/'));
-  const enHref = $derived(localizeHref('/', { locale: 'en' }));
+  let { path = '/' }: { path?: string } = $props();
+  const ruHref = $derived(localizeHref(path, { locale: 'ru' }));
+  const enHref = $derived(localizeHref(path, { locale: 'en' }));
 </script>
 
 <nav class="lang-switch" aria-label={m.lang_switch()}>
@@ -31,9 +32,9 @@
   .lang-switch {
     display: inline-flex;
     align-items: center;
-    gap: .35rem;
+    gap: .5rem;
     font-size: var(--text-small);
-    color: #b0a6b9;
+    color: var(--secondary);
   }
   .lang-switch a {
     min-height: 2.75rem;
@@ -42,7 +43,7 @@
     padding: 0 .25rem;
     color: inherit;
   }
-  .lang-switch a:hover { color: var(--cyan); }
-  .lang-switch a.active { color: var(--ink); font-weight: 600; }
+  .lang-switch a:hover { color: var(--ink); }
+  .lang-switch a.active { color: var(--ink); font-weight: 500; }
   .lang-divider { opacity: .45; user-select: none; }
 </style>

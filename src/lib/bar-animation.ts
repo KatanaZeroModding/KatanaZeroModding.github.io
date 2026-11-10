@@ -16,7 +16,7 @@ export type SpriteFrame = {
 type Beat = {
   id: string;
   frames: number;
-  speaker?: 'shirt' | 'cap';
+  speaker?: 'cap';
   action?: 'drink' | 'smoke';
 };
 
@@ -24,16 +24,12 @@ type Beat = {
 // Action lengths come from the source strips, so drink/smoke finish completely.
 export const beats: Beat[] = [
   { id: 'settle', frames: 30 },
-  { id: 'shirt-speaks', frames: sprites.spr_vet1_shirt_talk.frames * 6, speaker: 'shirt' },
-  { id: 'listen', frames: 9 },
   { id: 'cap-replies', frames: sprites.spr_vet2_cap_talk.frames * 4, speaker: 'cap' },
   { id: 'cap-reply-breath', frames: 9 },
   { id: 'cap-reply-smoke', frames: sprites.spr_vet2_cap_smoke.frames, action: 'smoke' },
   { id: 'smoke-rest', frames: 18 },
   { id: 'null-drinks', frames: sprites.spr_player_drink.frames, action: 'drink' },
   { id: 'rest', frames: 36 },
-  { id: 'shirt-continues', frames: sprites.spr_vet1_shirt_talk.frames * 4, speaker: 'shirt' },
-  { id: 'listen-again', frames: 9 },
   { id: 'cap-answers', frames: sprites.spr_vet2_cap_talk.frames * 3, speaker: 'cap' },
   { id: 'cap-answer-breath', frames: 9 },
   { id: 'cap-answer-smoke', frames: sprites.spr_vet2_cap_smoke.frames, action: 'smoke' },
@@ -52,12 +48,12 @@ for (const beat of beats) {
   beatStart += beat.frames;
 }
 
-// The back-facing original talk strip also contains a head bob. Use its
-// downward frames once as a listener's nod instead of looping the full gesture.
-const nodFrames = [0, 0, 2, 3, 3, 2, 0, 0];
-const nodStart = 9;
+// A nine-frame phrase pairs the smoker's gesture with the listener's nod.
+// Use only the downward head-bob poses of the six-frame shirt strip.
+// Both return to rest before the next phrase or the smoking animation.
+const listenerPhraseFrames = [0, 0, 0, 2, 3, 3, 2, 0, 0];
 
-export function sampleScene(elapsed: number): { beat: string; speaker: 'shirt' | 'cap' | null; listenerNodding: boolean; actors: SpriteFrame[] } {
+export function sampleScene(elapsed: number): { beat: string; speaker: 'cap' | null; listenerNodding: boolean; actors: SpriteFrame[] } {
   const tick = Math.floor(Math.max(0, elapsed) * sceneFps);
   let localFrame = tick % cycleFrames;
   let beat = beats[0];
@@ -67,9 +63,10 @@ export function sampleScene(elapsed: number): { beat: string; speaker: 'shirt' |
     localFrame -= beat.frames;
   }
   const drinking = beat.action === 'drink';
-  const listenerNodding = beat.speaker === 'cap' && localFrame >= nodStart && localFrame < nodStart + nodFrames.length;
-  const shirt: SpriteName = beat.speaker === 'shirt' || listenerNodding ? 'spr_vet1_shirt_talk' : 'spr_vet1_shirt_right_idle';
-  const shirtFrame = listenerNodding ? nodFrames[localFrame - nodStart] : localFrame % sprites[shirt].frames;
+  const phraseFrame = localFrame % sprites.spr_vet2_cap_talk.frames;
+  const shirtFrame = beat.speaker === 'cap' ? listenerPhraseFrames[phraseFrame] : 0;
+  const listenerNodding = shirtFrame !== 0;
+  const shirt: SpriteName = listenerNodding ? 'spr_vet1_shirt_talk' : 'spr_vet1_shirt_right_idle';
   const cap: SpriteName = beat.action === 'smoke' ? 'spr_vet2_cap_smoke' :
     beat.speaker === 'cap' ? 'spr_vet2_cap_talk' : 'spr_vet2_cap_idle';
   const actors: SpriteFrame[] = [
